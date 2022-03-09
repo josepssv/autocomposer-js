@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,16 +12,17 @@
       body {
         background-color: #ddd;
         font-family: sans-serif;
+        margin-left: 50px;
       }
 
       code,
       textarea,
-      #output-melodies {
+      .output-melodies {
         font-family: monospace;
         white-space: pre-wrap;
       }
 
-      #output-melodies {
+      .output-melodies {
         background-color: #fff;
         border: 1px solid #888;
       }
@@ -35,7 +37,7 @@
       If you're looking for unit tests, they're not here. You can check them out at the <a href="../doc/index.html">documentation page</a>.
     </p>
 
-    <hr>
+    
 
     <h2>Audio Playback</h2>
     <p>Write the melodies in scientific notation, like <code>C4 Eb4 G4</code> </p>
@@ -43,31 +45,45 @@
     <h3>Playing a Single Melody</h3>
     <label for="solo-melody">Solo Melody</label>
     <input type="text" id="solo-melody" name="solo-melody" value="C4 E4 G4"/><br>
-
     <button id="button-play-solo" name="button-play">Play music!</button>
+
+     
 
     <h3>Playing Three Melodies</h3>
     <label for="first-melody">Melody 1</label>
     <input type="text" id="first-melody" name="first-melody" value="C4 E4 G4"/><br>
-
     <label for="second-melody">Melody 2</label>
     <input type="text" id="second-melody" name="second-melody" value="E3 C3 D3"/><br>
-
     <label for="third-melody">Melody 3</label>
     <input type="text" id="third-melody" name="third-melody" value="G2 A2 B2"/><br>
-
     <button id="button-play" name="button-play">Play music!</button>
 
-    <hr>
 
-    <h2>Testing simple melody generation</h2>
+
+    <h3>Testing simple melody generation</h3>
     <label for="chk-raw">Raw output: </label><input type="checkbox" id="chk-raw" name="chk-raw"/><br>
     <label for="chk-limit">Limit output?: </label><input type="checkbox" id="chk-limit" name="chk-limit"/><br>
     <label for="chk-filtered">Filter melodies?: </label><input type="checkbox" id="chk-filtered" name="chk-filtered"/><br>
     <button id="btn-melody-gen" name="btn-melody-gen">Generate melody for "Gm D7"</button>
-    <p id="output-melodies"></p>
+    <p class="output-melodies" id="output-melodies"></p>
 
-    <hr>
+ 
+
+    <h3>Melody generation and play with chords and compass</h3>
+    <label for="compass">Compass</label>
+    <input type="text" id="compass" name="compass" size=1 value="4"/>
+    <label for="chord-interval">Chord interval</label>
+    <input type="text" id="chord-interval" name="chord-interval" size=2 value="3 4"/>
+    <br>
+    <label for="chk-raw-play">Raw output: </label><input type="checkbox" id="chk-raw-play" name="chk-raw-play"/><br>
+    <label for="chk-limit-play">Limit output?: </label><input type="checkbox" id="chk-limit-play" name="chk-limit-play"/><br>
+    <label for="chk-filtered-play">Filter melodies?: </label><input type="checkbox" id="chk-filtered-play" name="chk-filtered-play"/><br>
+    <label for="solo-melody-gen-play">Melody for </label>
+    <input type="text" id="solo-melody-gen-play" name="solo-melody-gen-play" value="C E"/><button id="btn-melody-gen-play" name="btn-melody-gen-play">Generate melody</button><button id="button-play-melodies" name="button-play-melodies" style="display:none;">Play music!</button>
+    <p class="output-melodies" id="output-melodies-gen-play"></p>
+    
+
+    <div style="margin-bottom: 300px;"> </div>
 
     <script src="../dist/autocomposer-js.js"></script>
     <script src="index.js"></script>
